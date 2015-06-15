@@ -28,6 +28,10 @@ class RomanNumericals {
                 for ($i = 1; $i <= $number; $i++) {
                     $s .= $chart[0];
                 }
+                break;
+            case 4 :
+                $s = $chart[0] . $chart[1];
+                break;
         }
 
         return $s;
