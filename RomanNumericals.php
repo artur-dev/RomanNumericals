@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class used for conversion decimal numbers to roman numbers
+ */
 class RomanNumericals {
     private $number;
 
@@ -45,6 +48,7 @@ class RomanNumericals {
                 $s = $chart[0] . $chart[2];
                 break;
             default :
+                throw new Exception('convertStep() didn\'t expect number other than 0-9');
         }
 
         return $s;
@@ -52,8 +56,8 @@ class RomanNumericals {
 
     private function convert($number)
     {
-        return
-            $this->convertStep($number % 10, $this->conversion_chart[0]);
+        return $this->convertStep(floor(($number % 100) / 10), $this->conversion_chart[0])
+            . $this->convertStep($number % 10, $this->conversion_chart[0]);
 
     }
 }
