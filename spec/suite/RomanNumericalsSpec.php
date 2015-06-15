@@ -1,24 +1,26 @@
 <?php
 //namespace CodeKata\Supermarket\Tests\Models;
-include 'RomanNumericals.class.php';
+include 'RomanNumericals.php';
 use kahlan\plugin\Stub;
 //    CodeKata\Supermarket\Models\UnitPrice;
 
 describe("Roman Numericals", function() {
     beforeEach(function() {
-        $romman_number = new RomanNumericals();
-        $roman_number_result = $roman_number->getRoman(5);
+        $this->roman_number = new RomanNumericals();
     });
 
     it("returns romman number < 10", function() {
-        expect($roman_number_result)->toBe('V');
+        $roman_number_result = $this->roman_number->getRoman(1);
+        expect($roman_number_result)->toBe('I');
     });
 
     it("returns romman number < 100", function() {
-        expect($roman_number_result\)->toBe('');
+        $roman_number_result = $this->roman_number->getRoman(2);
+        expect($roman_number_result)->toBe('II');
     });
 
     it("returns romman number < 1000", function() {
-        expect($roman_number_result\)->toBe('');
+        $roman_number_result = $this->roman_number->getRoman(3);
+        expect($roman_number_result)->toBe('III');
     });
 });
