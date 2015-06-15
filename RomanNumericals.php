@@ -37,14 +37,14 @@ class RomanNumericals {
             case 7 :
             case 8 :
                 $s = $chart[1];
-                for ($i = 1; $i <= $number % 5; $i++) {
+                for ($i = 6; $i <= $number; $i++) {
                     $s .= $chart[0];
                 }
                 break;
             case 9 :
                 $s = $chart[0] . $chart[2];
                 break;
-
+            default :
         }
 
         return $s;
