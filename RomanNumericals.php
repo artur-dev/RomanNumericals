@@ -8,7 +8,9 @@ class RomanNumericals {
 
     private $conversion_chart = [
         ['I', 'V', 'X'],
-        ['X', 'L', 'C']
+        ['X', 'L', 'C'],
+        ['C', 'D', 'M'],
+        ['M']
     ];
 
     public function __construct()
@@ -17,6 +19,9 @@ class RomanNumericals {
 
     public function getRoman($number)
     {
+        if ($number < 1 || $number > 3999) {
+            throw new Exception("Number out of bounds " . $number .".");
+        }
         return $this->convert($number);
     }
 
@@ -57,7 +62,9 @@ class RomanNumericals {
 
     private function convert($number)
     {
-        return $this->convertStep(floor(($number % 100) / 10), $this->conversion_chart[1])
+        return $this->convertStep(floor(($number % 10000) / 1000), $this->conversion_chart[3])
+            . $this->convertStep(floor(($number % 1000) / 100), $this->conversion_chart[2])
+            . $this->convertStep(floor(($number % 100) / 10), $this->conversion_chart[1])
             . $this->convertStep($number % 10, $this->conversion_chart[0]);
 
     }

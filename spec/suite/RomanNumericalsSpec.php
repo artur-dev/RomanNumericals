@@ -29,4 +29,24 @@ describe("Roman Numericals", function() {
         }
     });
 
+    context("Testing numbers between 100 - 999", function() {
+        $numbers = [100 => 'C', 268 => 'CCLXVIII', 330 => 'CCCXXX'];
+        foreach ($numbers as $key => $value) {
+            it("returns romman $value when the number is $key ", function() use($key, $value) {
+                $roman_number_result = $this->roman_number->getRoman($key);
+                expect($roman_number_result)->toBe($value);
+            });
+        }
+    });
+    it("returns romman for 3999 ", function() {
+                $roman_number_result = $this->roman_number->getRoman(3999);
+                expect($roman_number_result)->toBe('MMMCMXCIX');
+    });
+
+    it("throws exception for negative numbers ", function() {
+                expect(function() {
+                    $roman_number = new RomanNumericals();
+                    $roman_number_result = $roman_number->getRoman(-299);
+                })->toThrow(new Exception('Number out of bounds -299.'));
+    });
 });
