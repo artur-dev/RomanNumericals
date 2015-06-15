@@ -20,7 +20,7 @@ class RomanNumericals {
     {
         $s = '';
 
-        switch ($number % 9) {
+        switch ($number % 10) {
             case 0 :
             case 1 :
             case 2 :
