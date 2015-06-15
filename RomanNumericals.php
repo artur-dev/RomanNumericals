@@ -8,6 +8,7 @@ class RomanNumericals {
 
     private $conversion_chart = [
         ['I', 'V', 'X'],
+        ['X', 'L', 'C']
     ];
 
     public function __construct()
@@ -56,7 +57,7 @@ class RomanNumericals {
 
     private function convert($number)
     {
-        return $this->convertStep(floor(($number % 100) / 10), $this->conversion_chart[0])
+        return $this->convertStep(floor(($number % 100) / 10), $this->conversion_chart[1])
             . $this->convertStep($number % 10, $this->conversion_chart[0]);
 
     }
