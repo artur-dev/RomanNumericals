@@ -1,19 +1,24 @@
 <?php
 //namespace CodeKata\Supermarket\Tests\Models;
-
+include 'RomanNumericals.class.php';
 use kahlan\plugin\Stub;
 //    CodeKata\Supermarket\Models\UnitPrice;
 
-describe("UnitPrice model", function() {
+describe("Roman Numericals", function() {
     beforeEach(function() {
-        //$this->model = new UnitPrice(['unit_price' => 4.99]);
+        $romman_number = new RomanNumericals();
+        $roman_number_result = $roman_number->getRoman(5);
     });
 
-    it("returns total price without any discount for multiple units", function() {
-        //expect($this->model->getFormattedTotalPrice(10))->toBe('49.90');
+    it("returns romman number < 10", function() {
+        expect($roman_number_result)->toBe('V');
     });
 
-    it("returns full price for single unit", function() {
-        expect(true)->toBeTruthy();
+    it("returns romman number < 100", function() {
+        expect($roman_number_result\)->toBe('');
+    });
+
+    it("returns romman number < 1000", function() {
+        expect($roman_number_result\)->toBe('');
     });
 });
