@@ -7,46 +7,26 @@ describe("Roman Numericals", function() {
         $this->roman_number = new RomanNumericals();
     });
 
-    it("returns romman number < 5", function() {
-        $roman_number_result = $this->roman_number->getRoman(1);
-        expect($roman_number_result)->toBe('I');
+    context("Testing numbers between 1 - 9", function() {
+        $numbers = [1 => 'I', 2 => 'II', 3 => 'III', 4 => 'IV', 5 => 'V',
+        6 => 'VI', 7 => 'VII', 8 => 'VIII', 9 => 'IX'];
+        foreach ($numbers as $key => $value) {
+            it("returns romman $value when the number is $key ", function() use($key, $value) {
+                $roman_number_result = $this->roman_number->getRoman($key);
+                expect($roman_number_result)->toBe($value);
+            });
+        }
     });
 
-    it("returns romman number < 5", function() {
-        $roman_number_result = $this->roman_number->getRoman(2);
-        expect($roman_number_result)->toBe('II');
+    context("Testing numbers between 10 - 99", function() {
+        $numbers = [10 => 'X', 26 => 'XXVI', 33 => 'XXXIII', 41 => 'XLI', 58 => 'LVIII',
+        66 => 'LXVI', 74 => 'LXXIV', 87 => 'LXXXVII', 99 => 'XCIX'];
+        foreach ($numbers as $key => $value) {
+            it("returns romman $value when the number is $key ", function() use($key, $value) {
+                $roman_number_result = $this->roman_number->getRoman($key);
+                expect($roman_number_result)->toBe($value);
+            });
+        }
     });
 
-    it("returns romman number < 5", function() {
-        $roman_number_result = $this->roman_number->getRoman(3);
-        expect($roman_number_result)->toBe('III');
-    });
-
-    it("returns romman number < 5", function() {
-        $roman_number_result = $this->roman_number->getRoman(4);
-        expect($roman_number_result)->toBe('IV');
-    });
-    it("returns romman number < 5", function() {
-        $roman_number_result = $this->roman_number->getRoman(5);
-        expect($roman_number_result)->toBe('V');
-    });
-
-    it("returns romman number < 5", function() {
-        $roman_number_result = $this->roman_number->getRoman(6);
-        expect($roman_number_result)->toBe('VI');
-    });
-
-    it("returns romman number < 5", function() {
-        $roman_number_result = $this->roman_number->getRoman(7);
-        expect($roman_number_result)->toBe('VII');
-    });
-
-    it("returns romman number < 5", function() {
-        $roman_number_result = $this->roman_number->getRoman(8);
-        expect($roman_number_result)->toBe('VIII');
-    });
-    it("returns romman number 9", function() {
-        $roman_number_result = $this->roman_number->getRoman(9);
-        expect($roman_number_result)->toBe('IX');
-    });
 });
