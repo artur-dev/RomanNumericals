@@ -26,7 +26,7 @@ class RomanNumericals {
             case 2 :
             case 3 :
                 for ($i = 1; $i <= $number; $i++) {
-                    $s .= $this->conversion_chart[0];
+                    $s .= $chart[0];
                 }
         }
 
