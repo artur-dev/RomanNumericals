@@ -1,0 +1,10 @@
+{
+    "name": "example/kahlan",
+    "description": "Demonstration of installing Kahlan through Composer",
+    "require": {
+    },
+    "require-dev": {
+        "crysalead/kahlan": "~1.1"
+    },
+    "license": "MIT"
+}
