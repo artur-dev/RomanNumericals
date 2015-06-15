@@ -32,6 +32,15 @@ class RomanNumericals {
             case 4 :
                 $s = $chart[0] . $chart[1];
                 break;
+            case 5 :
+            case 6 :
+            case 7 :
+            case 8 :
+                $s = $chart[1];
+                for ($i = 1; $i <= $number; $i++) {
+                    $s .= $chart[0];
+                }
+                break;
         }
 
         return $s;
